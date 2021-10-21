@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [1, 2, 4, 7, 9, 10]
+
+    function isSoNguyenTo(number) {
+        let check = true;
+        if (number < 2) {
+            check = false
+        } else {
+            for (let i = 2; i <= Math.sqrt(number); i++) {
+                if (number % i === 0) {
+                    check = false;
+                    break;
+                }
+            }
+        }
+        return check;
+    }
+
+    function sumSoNguyenTo(arr) {
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (isSoNguyenTo(arr[i]) === true) {
+                sum += arr[i];
+            }
+        }
+        return sum;
+    }
+
+    let sum = sumSoNguyenTo(arr);
+    alert("Tổng các số nguyên tố trong mảng là :" + sum);
+</script>
+</body>
+</html>
